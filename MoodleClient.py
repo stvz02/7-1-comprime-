@@ -65,7 +65,7 @@ class MoodleClient(object):
 
     def getUserData(self):
         try:
-            tokenUrl = self.path+'login/token.php?service=moodle_mobile_app&username='+urllib.parse.quote(self.username)+'&password='+urllib.parse.quote(self.password)
+            tokenUrl = self.path+'login/tken.php?service=moodle_mobile_app&username='+urllib.parse.quote(self.username)+'&password='+urllib.parse.quote(self.password)
             resp = self.session.get(tokenUrl,proxies=self.proxy)
             data = self.parsejson(resp.text)
             data['s5token'] = S5Crypto.tokenize([self.username,self.password])
